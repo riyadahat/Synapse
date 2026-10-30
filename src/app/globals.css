@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --font-sans: "DM Sans";
+  --font-serif: "DM Serif Display";
+  --font-mono: "JetBrains Mono";
+}
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ivory text-ink font-sans text-[14px] leading-[1.5];
+  }
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
+  ::selection {
+    background: #d8ded1;
+  }
+  :focus-visible {
+    outline: 2px solid #71816b;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+@layer components {
+  .card {
+    @apply bg-white border border-line rounded-lg;
+  }
+  .card-pad {
+    @apply p-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md px-3.5 h-9 text-[13.5px] font-medium transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn bg-sage text-white hover:bg-sage-dark;
+  }
+  .btn-secondary {
+    @apply btn bg-white border border-line text-ink hover:bg-sage-tint;
+  }
+  .btn-ghost {
+    @apply btn text-muted-strong hover:bg-sage-tint hover:text-ink;
+  }
+  .btn-danger {
+    @apply btn bg-terracotta text-white hover:bg-terracotta-ink;
+  }
+  .btn-sm {
+    @apply h-8 px-3 text-[13px];
+  }
+  .input {
+    @apply w-full h-9 rounded-md border border-line bg-white px-3 text-[14px] text-ink placeholder:text-muted outline-none transition-colors focus:border-sage focus:ring-2 focus:ring-sage-soft;
+  }
+  textarea.input {
+    @apply h-auto py-2 leading-relaxed;
+  }
+  select.input {
+    @apply pr-8;
+  }
+  .label {
+    @apply block text-[12.5px] font-medium text-muted-strong mb-1;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[12px] font-medium border;
+  }
+  .meta {
+    @apply font-mono text-[11px] text-muted-strong;
+  }
+  .th {
+    @apply text-left text-[12px] font-medium text-muted-strong px-4 py-2.5 border-b border-line bg-ivory/60;
+  }
+  .td {
+    @apply px-4 py-3 border-b border-line align-middle;
+  }
+}
